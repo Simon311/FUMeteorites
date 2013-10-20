@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C# Express 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FU Meteorites!", "FU Meteorites!\FU Meteorites!.csproj", "{58B5026D-783E-460C-80EE-27F7DBE1827E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FUMeteorites", "FUMeteorites\FUMeteorites.csproj", "{58B5026D-783E-460C-80EE-27F7DBE1827E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

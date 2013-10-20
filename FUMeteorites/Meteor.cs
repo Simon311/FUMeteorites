@@ -1,24 +1,17 @@
 ﻿﻿using System;
-using System.Linq;
-using System.IO;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
 using Terraria;
-using Hooks;
-using TShockAPI;
-using TShockAPI.DB;
-using System.ComponentModel;
+using TerrariaApi.Server;
 
 namespace FUMeteoritesPlugin
 {
-    [APIVersion(1, 12)]
+    [ApiVersion(1, 14)]
 
     public class FUMeteorites : TerrariaPlugin
     {
         public override Version Version
         {
-            get { return new Version("1.0"); }
+			get { return Assembly.GetExecutingAssembly().GetName().Version; }
         }
         public override string Name
         {
@@ -26,7 +19,7 @@ namespace FUMeteoritesPlugin
         }
         public override string Author
         {
-            get { return "Colin"; }
+            get { return "Colin & Simon311"; }
         }
         public override string Description
         {
@@ -36,14 +29,19 @@ namespace FUMeteoritesPlugin
         public FUMeteorites(Main game)
             : base(game)
         {
-            Order = 4;
+            Order = -4;
         }
         public override void Initialize()
         {
-            GameHooks.Update += GameHooks_Update;
+			ServerApi.Hooks.GameUpdate.Register(this, OnUpdate);
         }
 
-        void GameHooks_Update()
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing) ServerApi.Hooks.GameUpdate.Deregister(this, OnUpdate);
+		}
+
+        public static void OnUpdate(EventArgs e)
         {
             WorldGen.spawnMeteor = false;
         }
