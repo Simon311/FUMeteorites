@@ -43,13 +43,16 @@ namespace FUMeteoritesPlugin
 
         public static void OnUpdate(EventArgs e)
         {
-            WorldGen.spawnMeteor = false;
+			WorldGen.spawnMeteor = false;
 			Main.bloodMoon = false;
 			Main.invasionType = 0;
 			Main.invasionSize = 0;
 			Main.invasionDelay = 0;
 			Main.invasionWarn = 0;
 			Main.invasionX = 0.0;
+			Main.pumpkinMoon = false;
+			Main.moonType = 0;
+			Main.moonModY = 0;
         }
     }
 }
