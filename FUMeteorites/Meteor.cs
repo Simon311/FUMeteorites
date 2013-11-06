@@ -44,7 +44,9 @@ namespace FUMeteoritesPlugin
         public static void OnUpdate(EventArgs e)
         {
 			WorldGen.spawnMeteor = false;
+			/*
 			Main.bloodMoon = false;
+			Main.eclipse = false;
 			Main.invasionType = 0;
 			Main.invasionSize = 0;
 			Main.invasionDelay = 0;
@@ -53,6 +55,7 @@ namespace FUMeteoritesPlugin
 			Main.pumpkinMoon = false;
 			Main.moonType = 0;
 			Main.moonModY = 0;
-        }
+			*/
+		}
     }
 }
