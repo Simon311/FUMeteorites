@@ -31,6 +31,7 @@ namespace FUMeteoritesPlugin
         {
             Order = -4;
         }
+
         public override void Initialize()
         {
 			ServerApi.Hooks.GameUpdate.Register(this, OnUpdate);
@@ -39,6 +40,7 @@ namespace FUMeteoritesPlugin
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing) ServerApi.Hooks.GameUpdate.Deregister(this, OnUpdate);
+			base.Dispose(disposing);
 		}
 
         public static void OnUpdate(EventArgs e)
