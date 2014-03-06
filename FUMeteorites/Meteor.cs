@@ -5,7 +5,7 @@ using TerrariaApi.Server;
 
 namespace FUMeteoritesPlugin
 {
-    [ApiVersion(1, 14)]
+    [ApiVersion(1, 15)]
 
     public class FUMeteorites : TerrariaPlugin
     {
