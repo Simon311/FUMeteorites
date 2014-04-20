@@ -29,7 +29,7 @@ namespace FUMeteoritesPlugin
         public FUMeteorites(Main game)
             : base(game)
         {
-            Order = -4;
+            Order = -5;
         }
 
         public override void Initialize()
@@ -57,6 +57,7 @@ namespace FUMeteoritesPlugin
 			Main.pumpkinMoon = false;
 			Main.moonType = 0;
 			Main.moonModY = 0;
+			 * Should probably add a config for all this
 			*/
 		}
     }
