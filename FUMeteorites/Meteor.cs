@@ -2,6 +2,7 @@
 using System.Reflection;
 using Terraria;
 using TerrariaApi.Server;
+using TShockAPI;
 
 namespace FUMeteoritesPlugin
 {
@@ -29,14 +30,15 @@ namespace FUMeteoritesPlugin
         public FUMeteorites(Main game)
             : base(game)
         {
-            Order = -5;
+            Order = 5;
         }
 
 		private static Config Cfg;
 
         public override void Initialize()
         {
-			ServerApi.Hooks.GameUpdate.Register(this, OnUpdate);
+			ServerApi.Hooks.GameUpdate.Register(this, OnUpdate, -1);
+			Commands.ChatCommands.Add(new Command("worldgen.disables", Reload, "worldgenrl"));
 			Cfg = Config.Read();
         }
 
@@ -44,6 +46,12 @@ namespace FUMeteoritesPlugin
 		{
 			if (disposing) ServerApi.Hooks.GameUpdate.Deregister(this, OnUpdate);
 			base.Dispose(disposing);
+		}
+
+		private void Reload(CommandArgs e)
+		{
+			Cfg = Config.Read();
+			e.Player.SendSuccessMessage("WorldGen disables reload succesfully!");
 		}
 
         public static void OnUpdate(EventArgs e)
