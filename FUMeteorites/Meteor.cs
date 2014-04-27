@@ -32,9 +32,12 @@ namespace FUMeteoritesPlugin
             Order = -5;
         }
 
+		private static Config Cfg;
+
         public override void Initialize()
         {
 			ServerApi.Hooks.GameUpdate.Register(this, OnUpdate);
+			Cfg = Config.Read();
         }
 
 		protected override void Dispose(bool disposing)
@@ -45,20 +48,35 @@ namespace FUMeteoritesPlugin
 
         public static void OnUpdate(EventArgs e)
         {
-			WorldGen.spawnMeteor = false;
-			/*
-			Main.bloodMoon = false;
-			Main.eclipse = false;
-			Main.invasionType = 0;
-			Main.invasionSize = 0;
-			Main.invasionDelay = 0;
-			Main.invasionWarn = 0;
-			Main.invasionX = 0.0;
-			Main.pumpkinMoon = false;
-			Main.moonType = 0;
-			Main.moonModY = 0;
-			 * Should probably add a config for all this
-			*/
+			if (Cfg.disableMeteor) 
+				WorldGen.spawnMeteor = false;
+
+			if (Cfg.disableRain && Main.raining) 
+				Main.StopRain();
+
+			if (Cfg.disableBloodmoon)
+				Main.bloodMoon = false;
+
+			if (Cfg.disableEclipse) 
+				Main.eclipse = false;
+
+			if (Cfg.disableInvasions)
+			{
+				Main.invasionType = 0;
+				Main.invasionSize = 0;
+				Main.invasionDelay = 0;
+				Main.invasionWarn = 0;
+				Main.invasionX = 0.0;
+			}
+
+			if (Cfg.disablePumpkinMoon)
+				Main.pumpkinMoon = false;
+
+			if (Cfg.disableMoons)
+			{
+				Main.moonType = 0;
+				Main.moonModY = 0;
+			}
 		}
     }
 }
