@@ -51,7 +51,7 @@ namespace FUMeteoritesPlugin
 		private void Reload(CommandArgs e)
 		{
 			Cfg = Config.Read();
-			e.Player.SendSuccessMessage("WorldGen disables reload succesfully!");
+			e.Player.SendSuccessMessage("WorldGen disables reload successfully!");
 		}
 
         public static void OnUpdate(EventArgs e)
