@@ -6,7 +6,7 @@ using TShockAPI;
 
 namespace FUMeteoritesPlugin
 {
-    [ApiVersion(1, 15)]
+    [ApiVersion(1, 16)]
 
     public class FUMeteorites : TerrariaPlugin
     {
